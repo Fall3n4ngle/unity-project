@@ -633,6 +633,26 @@ PrefabInstance:
       propertyPath: _uiStartLineCounter
       value: 
       objectReference: {fileID: 1503597830}
+    - target: {fileID: 114063973752666322, guid: 88e77e22203016e4a8239d1b6a7874fb,
+        type: 3}
+      propertyPath: _uiJumpBonusAfterGame
+      value: 
+      objectReference: {fileID: 538226945}
+    - target: {fileID: 114063973752666322, guid: 88e77e22203016e4a8239d1b6a7874fb,
+        type: 3}
+      propertyPath: _uiTimeBonusAfterGame
+      value: 
+      objectReference: {fileID: 319474315}
+    - target: {fileID: 114063973752666322, guid: 88e77e22203016e4a8239d1b6a7874fb,
+        type: 3}
+      propertyPath: _uiExtraPointsAfterGame
+      value: 
+      objectReference: {fileID: 2016069636}
+    - target: {fileID: 114063973752666322, guid: 88e77e22203016e4a8239d1b6a7874fb,
+        type: 3}
+      propertyPath: _uiShieldBonusAfterGame
+      value: 
+      objectReference: {fileID: 410246791}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour
     public int highScore;           // High Score
     public int highLevel;           // High Level
     public int currentScore = 0;    // Current game score
+    public int allJumpBonuses = 0;
+    public int allTimeBonuses = 0;
+    public int allShieldBonuses = 0;
     public int currentLevel = 1;   	// Current game level
     private int scoreCounter = 0;   // Score Counter for calculate player score
 
@@ -74,6 +77,10 @@ public class GameManager : MonoBehaviour
     public Text uiStartLineCounter;     // Start Counter
     public Text uiJumpBonus;            // Jump Bonus Text
     public Text uiShieldBonus;          // Shield Bonus Text
+    public Text uiJumpBonusAfterGame;
+    public Text uiShieldBonusAfterGame;
+    public Text uiExtraPointsAfterGame;
+    public Text uiTimeBonusAfterGame;
     public GameObject uiPlayerGameUI;  	// Player Game Play UI
     public GameObject uiMainMenu;       // Main Menu Canvas
     public GameObject uiGameOverMenu;   // Game Over Menu Canvas
@@ -245,6 +252,9 @@ public class GameManager : MonoBehaviour
         currentLevel = 1;
         currentScore = 0;
         scoreCounter = 0;
+        allJumpBonuses = 0;
+        allShieldBonuses = 0;
+        allTimeBonuses = 0;
 
         // Check Player is exist in the scene if there is a player then destroy player and all ways
         if (gamePlayer != null || status == GAMESTATUS.stopped)
@@ -408,11 +418,13 @@ public class GameManager : MonoBehaviour
     // Increase GameRemainingTime
     public void IncreaseGameRemainingTime(int _gameRemainTime)
     {
+        allTimeBonuses += _gameRemainTime;
         gameRemainTime = gameRemainTime + _gameRemainTime;
     }
     // Increase Shield Bonus
     public void IncreaseBonusShield(int _ShieldBonus)
     {
+        allShieldBonuses += _ShieldBonus;
         bonusShield = bonusShield + _ShieldBonus;
     }
 
@@ -425,6 +437,7 @@ public class GameManager : MonoBehaviour
     // Increase JumpPower Bonus
     public void IncreaseBonusJumpPower(int _JumpPowerCount)
     {
+        allJumpBonuses += _JumpPowerCount;
         bonunJumpPowerCount = bonunJumpPowerCount + _JumpPowerCount;
     }
 
@@ -484,6 +497,10 @@ public class GameManager : MonoBehaviour
         }
         if (_previousMenu == 1)
         {
+            uiJumpBonusAfterGame.text = "- Jump Bonus(" + allJumpBonuses + ")";
+            uiTimeBonusAfterGame.text = "- Time Bonus(" + allTimeBonuses + ")";
+            uiShieldBonusAfterGame.text = "- Shield Bonus(" + allShieldBonuses + ")";
+            uiExtraPointsAfterGame.text = "- Extra Point(" + currentScore + ")";
             previousMenu = 1;
             uiGameOverMenu.SetActive(false);
         }
